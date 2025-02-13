@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12A2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="/img/anh5.png" rel="icon" type="image/png" />
+    <style>
+        .slideshow-block {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+            width: 100%;
+            height: 100%;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .slideshow-description {
+            width: 45%;
+            height: 95%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid rgba(128, 128, 128, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
+            overflow-y: auto;
+        }
+
+        .slideshow {
+            margin: 20px;
+            border: 1px solid rgba(128, 128, 128, 0.8);
+            border-radius: 15px;
+            width: 45%;
+            height: 455px;
+            background: rgba(128, 128, 128, 0.3);
+            overflow: hidden;
+            vertical-align: middle;
+            box-shadow: 0 8px 6px -6px #000;
+            position: relative;
+            animation: fadeInRight 1s ease-in-out;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        ol {
+            counter-reset: item;
+            padding-left: 0;
+            list-style-type: none;
+            color: #333;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            transform: scale(1.1);
+            transition: transform 1s ease-in-out;
+        }
+
+        .slide.active img {
+            transform: scale(1);
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.exit {
+            transform: translateX(-100%);
+        }
+
+        .slideshow:hover .slide img {
+            transform: scale(1.05);
+        }
+
+        .slideshow-description h2,
+        .slideshow-description h3,
+        .slideshow-description p {
+            color: #333;
+        }
+
+        .slideshow-description h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .slideshow-description h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .slideshow-description ol {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slideshow-block {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .slideshow-description,
+            .slideshow {
+                width: 90%;
+                margin: 10px 0;
+            }
+
+            .slideshow {
+                height: 200px;
+                width: 100%;
+            }
+
+            .slide img {
+                height: auto;
+            }
+
+            .slideshow-description h2,
+            .slideshow-description h3,
+            .slideshow-description ol {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Sync School</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="introduce.html">Các câu lạc bộ </a></li>
+            <li><a href="https://www.facebook.com/p/Tr%C6%B0%E1%BB%9Dng-THPT-L%C3%AA-Qu%C3%BD-%C4%90%C3%B4n-Tr%E1%BA%A5n-Y%C3%AAn-Y%C3%AAn-B%C3%A1i-100087310252729/"
+                    target="_blank">Tham gia Fanpage</a></li>
+            <li><a href="https://ngthinh2201207.id.vn/">Liên hệ với chúng tôi</a></li>
+        </ul>
+    </nav>
+
+    <main class="main">
+        <section class="section animation">
+            <h2>Thông tin</h2>
+            <p>Trường Trung học Phổ thông (THPT) Lê Quý Đôn tọa lạc tại thị trấn Cổ Phúc, huyện Trấn Yên, tỉnh Yên Bái.
+            </p>
+            <p>Đây là một trong những trường THPT uy tín trong khu vực, với đội ngũ giáo viên giàu kinh nghiệm và cơ sở
+                vật chất hiện đại.</p>
+            <p>Trong những năm gần đây, nhà trường đã chú trọng đầu tư vào trang thiết bị dạy học, góp phần nâng cao
+                chất lượng giảng dạy và học tập. </p>
+        </section>
+
+        <section class="section animation">
+            <h2>Thành tựu</h2>
+            <p>Trong những năm gần đây, trường đã đạt được nhiều kết quả đáng tự hào trên tất cả các lĩnh vực. Cụ thể,
+                hàng năm, trên 70% học sinh được xếp loại khá giỏi; tỷ lệ đỗ tốt nghiệp đạt 99% trở lên.</p>
+            <p>Chất lượng mũi nhọn có nhiều chuyển biến rõ nét, với từ 25 - 30 học sinh giỏi cấp tỉnh và 2-3 dự án khoa
+                học kỹ thuật đạt giải cấp tỉnh mỗi năm. Nhà trường luôn duy trì trong tốp đầu các trường THPT trên địa
+                bàn tỉnh.</p>
+            <p>Ngoài ra, trường đã triển khai Phong trào "Mỗi người làm một việc tốt theo gương Bác" thường xuyên, liên
+                tục, được tập thể giáo viên, nhân viên và học sinh hưởng ứng tích cực, lan tỏa sâu rộng.</p>
+        </section>
+
+        <section class="section animation">
+            <h2>Lịch sử thành lập</h2>
+            <p>Trường Trung học Phổ thông (THPT) Lê Quý Đôn, tọa lạc tại tổ dân phố số 3, thị trấn Cổ Phúc, huyện Trấn
+                Yên, tỉnh Yên Bái, được thành lập vào ngày 2 tháng 11 năm 1998.</p>
+            <p>Tiền thân của trường là Trường C3 Trấn Yên 1, sau đó được đổi tên thành Trường THPT Lê Quý Đôn, vinh dự
+                mang tên danh nhân văn hóa Lê Quý Đôn.</p>
+            <p>Từ khi thành lập, trường đã không ngừng phát triển và đạt được nhiều thành tựu đáng kể trong công tác
+                giáo dục và đào tạo, trở thành một trong những trường THPT uy tín trong khu vực.</p>
+        </section>
+    </main>
+
+    <div class="footer-line"></div>
+
+    <div class="slideshow-block">
+        <div class="slideshow-description">
+            <h2>Một số học sinh thủ khoa của trường</h2>
+            <h3>Năm học 2023-2025</h3>
+            <ol id="top-list">
+                <li class="top-item">Nguyễn Thu Thương</li>
+                <li class="top-item">Vũ Quang Trung </li>
+                <li class="top-item">Đoàn Tuấn Long</li>
+                <li class="top-item">Nguyễn Thu Hiền</li>
+                <li class="top-item"> Nguyễn Tùng Lâm</li>
+                <li class="top-item">Đặng Việt Hoàng</li>
+                <li class="top-item">Phạm Đức Mạnh</li>
+                <li class="top-item">Trần Duy Hòa</li>
+                <li class="top-item">Trần Thủy Ngân</li>
+                <li class="top-item">Nguyễn Trà My</li>
+                <li class="top-item">Lương Thị Thúy Ngân</li>
+                <li class="top-item">Hoàng Duy Khánh</li>
+                <li class="top-item">Hoàng Mạnh Hải</li>
+            </ol>
+        </div>
+        <div class="slideshow">
+            <div class="slide-container" id="slide-container">
+                <div class="slide active">
+                    <img src="imgtop/1.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/2.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/3.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/4.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/5.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/6.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/7.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/8.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/9.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/10.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/11.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/12.jpg">
+                </div>
+                <div class="slide">
+                    <img src="imgtop/13.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-line"></div>
+
+    <footer>
+        <h3 style="color: #4ffbdf;">Made with <i class="fas fa-heart"></i> by Ngthinh</h3>
+        <p>Sản phẩm của nhóm 2</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
